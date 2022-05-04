@@ -13,3 +13,5 @@ jobs:
       run: touch info.txt
     - name: check fs again
       run: echo $(ls)
+    - name: print pwd
+      run: echo $(pwd)
