@@ -9,12 +9,3 @@ jobs:
     steps:
     - name: print fs
     run: ls
-    - name: print pwd
-    run: pwd
-  generate:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Generate Data
-      run: npm run generate
-    - name: print date
-      run: echo $(date) 
