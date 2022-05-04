@@ -7,9 +7,9 @@ jobs:
   check fs:
     runs-on: ubuntu-latest
     steps:
-    -name: print fs
+    - name: print fs
     run: ls
-    -name: print pwd
+    - name: print pwd
     run: pwd
   generate:
     runs-on: ubuntu-latest
