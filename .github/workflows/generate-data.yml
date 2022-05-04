@@ -4,7 +4,7 @@ on:
   push:
 
 jobs:
-  checkfs:
+  say:
     runs-on: ubuntu-latest
     steps:
     - name: print fs
