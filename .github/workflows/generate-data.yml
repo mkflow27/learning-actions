@@ -10,4 +10,4 @@ jobs:
     - name: Generate Data
       run: npm run generate
     - name: print date
-      run: echo $(date)
+      run: echo $(date) 
