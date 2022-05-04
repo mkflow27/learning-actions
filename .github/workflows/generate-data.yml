@@ -9,3 +9,7 @@ jobs:
     steps:
     - name: print fs
       run: echo $(ls)
+    - name: create a file
+      run: touch info.txt
+    - name: check fs again
+      run: echo $(ls)
