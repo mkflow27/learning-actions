@@ -1,0 +1,13 @@
+name: Generate data
+
+on:
+  push:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Generate Data
+      run: npm run generate
+    - name: print date
+      run: echo $(date)
