@@ -15,9 +15,6 @@ jobs:
       run: echo $(ls)
     - name: print pwd
       run: echo $(pwd)
-  read_file:
-    runs-on: ubuntu-latest
-    steps:
     - name: read from file
       run: |
         #!/bin/bash
