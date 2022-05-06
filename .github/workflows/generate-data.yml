@@ -50,6 +50,8 @@ jobs:
       run: |
         echo $(pwd)
         echo $(ls)
+        git config --global user.email "mk@gmail.com"
+        git config --global user.name "Mk Bot"
         git add .
         git commit -m "generated files"
         git push
