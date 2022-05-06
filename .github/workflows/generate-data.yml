@@ -11,6 +11,8 @@ jobs:
       run: echo $(ls)
     - name: create a file
       run: npm run generate
+    - name: checkout repo
+    - uses: actions/checkout@v2 
     - name: check fs again
       run: echo $(ls)
     - name: print pwd
