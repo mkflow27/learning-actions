@@ -4,7 +4,7 @@ on:
   push:
 
 jobs:
-  say:
+  generate:
     runs-on: ubuntu-latest
     steps:
     - name: print fs
@@ -23,3 +23,22 @@ jobs:
         #!/bin/bash
         value=`cat sample.txt`
         echo $value
+    - name: upload data
+      uses: actions/upload-artifact@v2
+      with:
+        name: sample
+        path: sample.txt
+  commit:
+    needs: generate
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download sample
+      uses: actions/download-artifact@v2
+      with:
+        name: sample
+        path: .
+    - name: print fs
+      run: echo $(ls)
+    - name: create 'generated' branch
+
+
