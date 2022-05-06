@@ -51,5 +51,21 @@ jobs:
         ref: generated
         path: branch
         fetch-depth: 0
+    - name: commit
+      run: |
+        echo $(pwd)
+        echo $(ls)
+        git add .
+        git commit -m "generated files"
+        git push
+    - name: Mkr PR to master
+    if: ${{ steps.commit.outputs.status }}
+      uses: thomaseizinger/create-pull-request@master
+      with:
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        head: generated
+        title: "Update generated files"
+        body: "Communicate the changes"
+  
 
 
