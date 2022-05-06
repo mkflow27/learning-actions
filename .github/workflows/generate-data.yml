@@ -39,6 +39,17 @@ jobs:
         path: .
     - name: print fs
       run: echo $(ls)
-    - name: create 'generated' branch
+    - uses: peterjgrainger/action-create-branch@v2.0.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        branch: generated
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        repository: mkflow27/learning-actions
+        ref: generated
+        path: branch
+        fetch-depth: 0
 
 
