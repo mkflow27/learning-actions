@@ -46,11 +46,6 @@ jobs:
         branch: generated
     - name: Checkout
       uses: actions/checkout@v2
-      with:
-        repository: mkflow27/learning-actions
-        ref: generated
-        path: branch
-        fetch-depth: 0
     - name: commit
       run: |
         echo $(pwd)
