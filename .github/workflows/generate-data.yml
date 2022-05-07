@@ -50,10 +50,11 @@ jobs:
       with:
         branch: generated
     - name: Checkout
-    - uses: actions/checkout@v2
-      with: 
+      uses: actions/checkout@v2
+      with:
         repository: mkflow27/learning-actions
         ref: generated
+
     - name: commit
       run: |
         echo $(pwd)
