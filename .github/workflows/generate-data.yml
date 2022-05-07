@@ -62,9 +62,14 @@ jobs:
         echo $(ls)
         git config --global user.email "mk@gmail.com"
         git config --global user.name "Mk Bot"
-        git add .
-        git commit -m "generated files"
-        git push
+        DIFF_LINES=$(git diff | wc -l)
+        if [ $DIFF_LINES -gt 0  ]
+        then
+          echo "::set-output name=status::commited"
+          git add .
+          git commit -m "Generate config"
+          git push
+        fi
     - name: Make PR to main
       if: ${{ steps.commit.outputs.status }}
       uses: thomaseizinger/create-pull-request@master
