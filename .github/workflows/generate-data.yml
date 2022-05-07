@@ -53,7 +53,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: mkflow27/learning-actions
-        ref: generated
+        ref: main
     - name: commit
       run: |
         echo $(pwd)
