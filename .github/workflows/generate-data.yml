@@ -51,7 +51,8 @@ jobs:
         branch: generated
     - name: Checkout
       uses: actions/checkout@v2
-        with: mkflow27/learning-actions
+      with: 
+        repository: mkflow27/learning-actions
         ref: generated
     - name: commit
       run: |
