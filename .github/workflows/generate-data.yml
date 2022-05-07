@@ -41,11 +41,6 @@ jobs:
     - name: Display structure of downloaded files
       run: ls -R
       # comment
-    - name: Download sample
-      uses: actions/download-artifact@v2
-      with:
-        name: sample
-        path: .
     - name: print fs
       run: echo $(ls)
     - uses: peterjgrainger/action-create-branch@v2.0.1
