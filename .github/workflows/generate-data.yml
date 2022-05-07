@@ -44,7 +44,7 @@ jobs:
     - name: print fs
       run: echo $(ls)
     - name: create 'generated' branch
-    - uses: peterjgrainger/action-create-branch@v2.0.1
+      uses: peterjgrainger/action-create-branch@v2.0.1
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       with:
@@ -54,7 +54,6 @@ jobs:
       with:
         repository: mkflow27/learning-actions
         ref: generated
-
     - name: commit
       run: |
         echo $(pwd)
