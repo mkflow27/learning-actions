@@ -54,6 +54,8 @@ jobs:
       with:
         repository: mkflow27/learning-actions
         ref: main
+    - name: create file
+      run: npm run generate
     - name: commit
       run: |
         echo $(pwd)
