@@ -43,6 +43,7 @@ jobs:
       # comment
     - name: print fs
       run: echo $(ls)
+    - name: create 'generated' branch
     - uses: peterjgrainger/action-create-branch@v2.0.1
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
@@ -50,6 +51,8 @@ jobs:
         branch: generated
     - name: Checkout
       uses: actions/checkout@v2
+        with: mkflow27/learning-actions
+        ref: generated
     - name: commit
       run: |
         echo $(pwd)
