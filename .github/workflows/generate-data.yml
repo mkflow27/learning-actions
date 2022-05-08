@@ -1,81 +1,16 @@
-name: Generate data
-
-on:
-  push:
+name: "Create PR"
+on: push
 
 jobs:
-  generate:
+  create-pr-on-push:
     runs-on: ubuntu-latest
     steps:
-    - name: print fs
-      run: echo $(ls)
-    - name: setup 
-      uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-    - name: create a file
-      run: npm run generate
-    - name: check fs again
-      run: echo $(ls)
-    - name: print pwd
-      run: echo $(pwd)
-    - name: read from file
-      run: |
-        #!/bin/bash
-        value=`cat sample.txt`
-        echo $value
-    - name: upload data
-      uses: actions/upload-artifact@v2
-      with:
-        name: sample
-        path: sample.txt
-  commit:
-    needs: generate
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-
-    - uses: actions/download-artifact@v3
-      with:
-        name: sample
-        
-    - name: Display structure of downloaded files
-      run: ls -R
-      # comment
-    - name: print fs
-      run: echo $(ls)
-    - name: create 'generated' branch
-      uses: peterjgrainger/action-create-branch@v2.0.1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-      with:
-        branch: generated
-    - name: Checkout
-      uses: actions/checkout@v2
-      with:
-        repository: mkflow27/learning-actions
-        ref: main
-    - name: create file
-      run: npm run generate
-    - name: commit
-      run: |
-        echo $(pwd)
-        echo $(ls)
-        git config --global user.email "mk@gmail.com"
-        git config --global user.name "Mk Bot"
-        DIFF_LINES=$(git diff | wc -l)
-        if [ $DIFF_LINES -gt 0  ]
-        then
-          echo "::set-output name=status::commited"
-          git add .
-          git commit -m "Generate config"
-        fi
-    - name: Make PR to main
+    - uses: actions/checkout@1.0.0
+    
+    - name: Create pull request
       uses: thomaseizinger/create-pull-request@master
       with:
-        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         head: ${{ github.ref }}
-        title: "Update generated files"
-        body: "Communicate the changes"
-  
-
-
+        base: master
+        title: "An automatically created PR!"
