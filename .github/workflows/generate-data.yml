@@ -70,7 +70,6 @@ jobs:
           git commit -m "Generate config"
         fi
     - name: Make PR to main
-      if: ${{ steps.commit.outputs.status }}
       uses: thomaseizinger/create-pull-request@master
       with:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
