@@ -73,7 +73,7 @@ jobs:
       uses: thomaseizinger/create-pull-request@master
       with:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        head: generated
+        head: mkflow27/generated
         title: "Update generated files"
         body: "Communicate the changes"
   
