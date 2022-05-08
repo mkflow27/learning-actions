@@ -68,7 +68,6 @@ jobs:
           echo "::set-output name=status::commited"
           git add .
           git commit -m "Generate config"
-          git push
         fi
     - name: Make PR to main
       if: ${{ steps.commit.outputs.status }}
