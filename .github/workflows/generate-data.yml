@@ -11,6 +11,8 @@ jobs:
     - name: generate
       run: |
         npm run generate
+        git config --global user.email "mk@mk"
+        git config --global user.name "mk Bot"
         git add .
         git commit -m "generated files"
 
