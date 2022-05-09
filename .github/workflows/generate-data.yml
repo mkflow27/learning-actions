@@ -10,7 +10,7 @@ jobs:
     - uses: actions/setup-node@v1
     - name: generate
       run: |
-        npm generate
+        npm run generate
         git add .
         git commit -m "generated files"
 
