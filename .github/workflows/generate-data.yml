@@ -2,7 +2,15 @@ name: "Create PR"
 on: push
 
 jobs:
+  generate files:
+    runs-on: ubuntu-latest
+    run: |
+      npm generate
+      git add .
+      git commit -m "generated files"
+
   create-pr-on-push:
+    needs: generate files
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@1.0.0
