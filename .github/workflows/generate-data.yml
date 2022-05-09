@@ -5,12 +5,14 @@ jobs:
   generate-files:
     runs-on: ubuntu-latest
     steps:
-    uses: actions/checkout@v2
+    - name: setup
+      uses: actions/checkout@v2
     - uses: actions/setup-node@v1
-    run: |
-      npm generate
-      git add .
-      git commit -m "generated files"
+    - name: generate
+      run: |
+        npm generate
+        git add .
+        git commit -m "generated files"
 
   create-pr-on-push:
     needs: generate files
