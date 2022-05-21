@@ -28,9 +28,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/download-artifact@v3
-    with: 
-      name: sampled
-      path: .
+      with:
+        name: sampled
+        path: .
       # checks if download was succesfuly  
     - name: Display structure of downloaded files
       run: ls -R
