@@ -24,6 +24,8 @@ jobs:
       with:
         name: sampled
         path: .
+    - name: read time
+      run: cat sample.txt
 
   commit:
     needs: generate-files
