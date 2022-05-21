@@ -3,18 +3,37 @@ on: push
 
 jobs:
   generate-files:
+  # 
     runs-on: ubuntu-latest
     steps:
     - name: setup
+      # checks-out repo under $GITHUB_WORKSPACE, so workflow can access it.
       uses: actions/checkout@v2
     - uses: actions/setup-node@v1
     - name: generate
       run: |
         npm run generate
-        git config --global user.email "mk@mk"
-        git config --global user.name "mk Bot"
-        git add .
-        git commit -m "generated files"
+      #  git config --global user.email "mk@mk"
+      #  git config --global user.name "mk Bot"
+      #  git add .
+      #  git commit -m "generated files"
+    - name: upload generated files
+      uses: actions/upload-artifact@v2
+      with:
+        name: sampled
+        path: .
+
+  commit:
+    needs: generate
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/download-artifact@v3
+    with: 
+      name: sampled
+      path: .
+      # checks if download was succesfuly  
+    - name: Display structure of downloaded files
+      run: ls -R
 
   create-pr-on-push:
     needs: generate-files
