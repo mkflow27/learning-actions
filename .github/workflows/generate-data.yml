@@ -10,6 +10,8 @@ jobs:
       # checks-out repo under $GITHUB_WORKSPACE, so workflow can access it.
       uses: actions/checkout@v2
     - uses: actions/setup-node@v1
+    - name: display fs
+      run: ls -R
     - name: generate
       run: |
         npm run generate
@@ -36,7 +38,7 @@ jobs:
       run: ls -R
 
   create-pr-on-push:
-    needs: generate-files
+    needs: commit
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@1.0.0
