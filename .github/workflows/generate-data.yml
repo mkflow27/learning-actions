@@ -57,4 +57,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         head: ${{ github.ref }}
         base: main
-        title: "An automatically created PR"
+        title: "An automatically created Pr"
