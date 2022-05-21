@@ -40,7 +40,7 @@ jobs:
       run: ls -R
     - name: commit new files
       run: |
-        git config --global user.email "mk@mk"
+        git config --global user.email "ligar46208@duetube.com"
         git config --global user.name "mk Bot"
         git add .
         git commit -m "generated files"
