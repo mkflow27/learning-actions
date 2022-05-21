@@ -38,6 +38,12 @@ jobs:
       # checks if download was succesfuly  
     - name: Display structure of downloaded files
       run: ls -R
+    - name: commit new files
+      run: |
+        git config --global user.email "mk@mk"
+        git config --global user.name "mk Bot"
+        git add .
+        git commit -m "generated files"
 
   create-pr-on-push:
     needs: commit
