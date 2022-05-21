@@ -44,6 +44,7 @@ jobs:
         git config --global user.name "mk Bot"
         git add .
         git commit -m "generated files"
+        git push
 
   create-pr-on-push:
     needs: commit
