@@ -26,6 +26,10 @@ jobs:
         path: .
     - name: read time
       run: cat sample.txt
+    - name: show remote repo and current branch
+      run: |
+        git remote show origin
+        git branch
 
   commit:
     needs: generate-files
